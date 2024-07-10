@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import ApiResponse from "./ApiResponse";
+
 export default function SearchEngine() {
   let [searchInput, letSearchInput] = useState("");
+  let [apiResponse, letApiResponse] = useState("");
 
   function handleSearchInput(value) {
     letSearchInput(value.target.value);
   }
 
   function handleResponse(response) {
-    console.log(response.data);
+    letApiResponse(response.data);
   }
 
   function search(event) {
@@ -23,9 +26,13 @@ export default function SearchEngine() {
   }
 
   return (
-    <form onSubmit={search}>
-      <input type="search" onChange={handleSearchInput} />
-      <input type="submit" value="Search" />
-    </form>
+    <div>
+      <form onSubmit={search}>
+        <input type="search" onChange={handleSearchInput} />
+        <input type="submit" value="Search" />
+      </form>
+
+      <ApiResponse results={apiResponse} />
+    </div>
   );
 }
