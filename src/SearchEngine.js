@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import "./SearchEngine.css";
 import ApiResponse from "./ApiResponse";
 
 export default function SearchEngine() {
@@ -27,7 +28,7 @@ export default function SearchEngine() {
 
   return (
     <div>
-      <form onSubmit={search}>
+      <form onSubmit={search} className="search-engine">
         <input type="search" onChange={handleSearchInput} />
         <input type="submit" value="Search" />
       </form>
