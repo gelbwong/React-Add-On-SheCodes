@@ -9,7 +9,7 @@ function App() {
       </header>
 
       <main>
-        <SearchEngine defaultWord="log" />
+        <SearchEngine defaultWord="frog" />
       </main>
 
       <footer>

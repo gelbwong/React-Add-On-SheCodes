@@ -72,7 +72,8 @@ export default function SearchEngine(props) {
   if (loaded) {
     return (
       <div>
-        <section>
+        <section className="header">
+          <h4>What word would you like to define?</h4>
           <form
             onSubmit={handleSubmit}
             className="search-engine"
@@ -86,8 +87,7 @@ export default function SearchEngine(props) {
             />
           </form>
           <p className="suggested-queries">
-            What word would you like to define? Facetious? Blatherskite? Maybe
-            even loquacious?
+            Examples: facetious, blatherskite, maybe even loquacious?
           </p>
         </section>
 
