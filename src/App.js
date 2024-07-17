@@ -17,6 +17,7 @@ function App() {
         <a
           href="https://www.linkedin.com/in/karina-wong-7a0652221/"
           target="_blank"
+          rel="noreferrer"
         >
           Karina
         </a>
@@ -24,6 +25,7 @@ function App() {
         <a
           href="https://github.com/gelbwong/React-Add-On-SheCodes"
           target="_blank"
+          rel="noreferrer"
         >
           {" "}
           GitHub
@@ -32,6 +34,7 @@ function App() {
         <a
           href="https://dictionary-shecodes-add-on.netlify.app"
           target="_blank"
+          rel="noreferrer"
         >
           Netfily
         </a>
