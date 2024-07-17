@@ -4,12 +4,14 @@ import axios from "axios";
 import "./SearchEngine.css";
 import ApiResponse from "./ApiResponse";
 import Error from "./Error";
+import ImageDisplay from "./ImageDisplay";
 
 export default function SearchEngine(props) {
   let [searchInput, letSearchInput] = useState(props.defaultWord);
   let [apiResponse, letApiResponse] = useState("");
   let [found, letFound] = useState(null);
   let [loaded, letLoaded] = useState(false);
+  let [images, letImages] = useState("");
 
   function handleSearchInput(value) {
     letSearchInput(value.target.value);
@@ -22,6 +24,14 @@ export default function SearchEngine(props) {
     } else {
       letApiResponse(response.data);
       letFound(null);
+    }
+  }
+
+  function getImages(assets) {
+    if (assets.total_results === 0) {
+      letImages("");
+    } else {
+      letImages(assets.data);
     }
   }
 
@@ -40,6 +50,8 @@ export default function SearchEngine(props) {
     let word = searchInput;
     let apiUrl = `https://api.shecodes.io/dictionary/v1/define?word=${word}&key=${key}`;
 
+    let imagesUrl = `https://api.shecodes.io/images/v1/search?query=${word}&key=${key}`;
+
     axios
       .get(apiUrl)
       .then(handleResponse)
@@ -47,6 +59,13 @@ export default function SearchEngine(props) {
         alert(
           `Sorry I cannot find the definition for ${searchInput}. Please try another word!`
         );
+      });
+
+    axios
+      .get(imagesUrl)
+      .then(getImages)
+      .catch((error) => {
+        console.log("Cannot find images for searched query");
       });
   }
 
@@ -57,12 +76,13 @@ export default function SearchEngine(props) {
           <form
             onSubmit={handleSubmit}
             className="search-engine"
-            id={"search-engine"}
+            id="search-engine"
           >
             <input
               type="search"
               onChange={handleSearchInput}
               placeholder={searchInput}
+              id="search-bar"
             />
           </form>
           <p className="suggested-queries">
@@ -73,6 +93,10 @@ export default function SearchEngine(props) {
 
         <ApiResponse results={apiResponse} />
         <Error message={found} word={searchInput} />
+
+        <section>
+          <ImageDisplay results={images} />
+        </section>
       </div>
     );
   } else {

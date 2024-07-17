@@ -18,7 +18,7 @@ export default function Meaning(props) {
         {Array.isArray(props.results.synonyms) ? (
           props.results.synonyms.map(function (synonym, index) {
             if (index === 0) {
-              return <span key={index}>Synonymns: {synonym}</span>;
+              return <span key={index}>Synonymn/s: {synonym}</span>;
             } else {
               return <span key={index}>, {synonym}</span>;
             }
