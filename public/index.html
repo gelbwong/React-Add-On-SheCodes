@@ -2,12 +2,17 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
     <meta
       name="description"
       content="Dictionary React App created with React by Karina Wong. This site was coded as part of the many projects in the SheCodes course."
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=IBM+Plex+Serif:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
     />
 
     <link
@@ -16,11 +21,30 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <style>
+      body {
+        background-image: linear-gradient(
+          rgba(255, 255, 255, 0.5),
+          rgba(64, 64, 64, 0.5)
+        );
+        filter: url(#grainy);
+
+        /*background-color: rgb(210, 206, 200);*/
+      }
+    </style>
 
     <title>Dictionary - Karina Wong</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    <svg width="0" height="0">
+      <filter id="grainy" x="0" y="0" width="100%" height="100%">
+        <feTurbulence type="fractalNoise" baseFrequency=".97"></feTurbulence>
+        <feColorMatrix type="saturate" values="0"></feColorMatrix>
+        <feBlend mode="multiply" in="SourceGraphic"></feBlend>
+      </filter>
+    </svg>
+
     <div id="root"></div>
   </body>
 </html>

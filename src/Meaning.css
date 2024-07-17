@@ -1,0 +1,12 @@
+.meaning-component .word-class {
+  font-size: 26px;
+}
+
+.meaning-component .definitions {
+  font-size: 17px;
+}
+
+.meaning-component .synonyms {
+  font-size: 14px;
+  color: rgb(80, 80, 80);
+}

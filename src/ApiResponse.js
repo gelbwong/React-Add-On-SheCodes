@@ -1,5 +1,7 @@
 import React from "react";
+import Speech from "react-speech";
 
+import "./ApiResponse.css";
 import Meaning from "./Meaning";
 
 export default function ApiResponse(response) {
@@ -9,13 +11,25 @@ export default function ApiResponse(response) {
   if (response.results) {
     return (
       <div>
-        <h3>{word}</h3>
-        <h4>{phonetic}</h4>
+        <section>
+          <h3>{word}</h3>
+
+          <div className="pronounciation-duo">
+            <div className="phonetics">
+              <h4>{phonetic}</h4>
+            </div>
+
+            <div className="pronounciation-button">
+              <Speech text={word} textAsButton={true} displayText="▶" />
+            </div>
+          </div>
+        </section>
+
         {response.results.meanings.map(function (meaning, index) {
           return (
-            <div key={index}>
+            <section key={index}>
               <Meaning results={meaning} />
-            </div>
+            </section>
           );
         })}
       </div>
