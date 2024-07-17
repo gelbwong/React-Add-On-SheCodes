@@ -67,7 +67,7 @@ export default function SearchEngine(props) {
           </form>
           <p className="suggested-queries">
             What word would you like to define? Facetious? Blatherskite? Maybe
-            even Loquacious?
+            even loquacious?
           </p>
         </section>
 

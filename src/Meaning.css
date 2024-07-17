@@ -1,3 +1,7 @@
+.meaning-component h4 {
+  font-weight: 500;
+}
+
 .meaning-component .word-class {
   font-size: 26px;
 }

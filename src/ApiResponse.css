@@ -1,3 +1,8 @@
+.main-word {
+  font-weight: 700;
+  font-size: 36px;
+}
+
 .phonetics,
 .pronounciation-button {
   display: inline-block;

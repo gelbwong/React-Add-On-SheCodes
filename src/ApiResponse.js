@@ -12,7 +12,7 @@ export default function ApiResponse(response) {
     return (
       <div>
         <section>
-          <h3>{word}</h3>
+          <h3 className="main-word">{word}</h3>
 
           <div className="pronounciation-duo">
             <div className="phonetics">
